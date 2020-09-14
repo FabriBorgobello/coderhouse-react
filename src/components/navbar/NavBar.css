@@ -1,0 +1,21 @@
+#NavBar {
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+}
+#NavBar #brand {
+  font-size: 1.5rem;
+  margin: 0.5rem 1rem;
+}
+
+#NavBar #options {
+  display: flex;
+}
+#NavBar #options .option {
+  font-size: 1.2rem;
+  list-style: none;
+  margin: 0.5rem 1rem;
+}
