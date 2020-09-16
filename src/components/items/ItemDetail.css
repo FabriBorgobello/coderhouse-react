@@ -1,0 +1,8 @@
+#ItemDetail > * {
+  margin: 0.5rem 0rem;
+}
+#ItemDetail #name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}

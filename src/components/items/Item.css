@@ -1,0 +1,35 @@
+.itemCard {
+  width: 20vw;
+  background-color: rgb(230, 230, 230);
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.15);
+}
+.itemCard #imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 200px;
+  border-radius: 5px;
+}
+.itemCard #imageContainer img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.itemCard #bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.itemCard #bottom #title {
+  margin: 0.5rem;
+}
+.itemCard #bottom #price {
+  text-align: left;
+  font-size: 1.5rem;
+}
