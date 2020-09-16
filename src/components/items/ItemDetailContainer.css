@@ -1,20 +1,9 @@
 #ItemDetailContainer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: rgb(230, 230, 230);
   margin: 1rem;
-  padding: 0.5rem;
+  padding: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.15);
-}
-#ItemDetailContainer #containerRight {
-  display: flex;
-  flex-direction: column;
-}
-#ItemDetailContainer #containerRight > * {
-  margin: 0.5rem 0rem;
-}
-#ItemDetailContainer #containerLeft {
-  display: flex;
-  flex-direction: column;
 }

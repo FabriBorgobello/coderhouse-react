@@ -1,0 +1,12 @@
+#ItemCount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+#ItemCount > * {
+    margin: 0.5rem 0;
+}
+#ItemCount label {
+    margin-right: 1rem;
+}

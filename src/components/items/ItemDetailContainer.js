@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-import { ItemCount } from "./ItemCount";
 import "./ItemDetailContainer.css";
+
+import { useParams } from "react-router-dom";
 
 export const ItemDetailContainer = () => {
   const [result, setResult] = useState({});
   const [load, setLoad] = useState(false);
 
+  let { id } = useParams();
+
   useEffect(() => {
     setLoad(true);
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const data = { id: 1, name: "Silla", price: "1000", stock: 50 };
-        resolve(data);
-      }, 1000);
-    }).then((data) => {
-      setResult(data);
-      setLoad(false);
-    });
+    fetch(`https://api.mercadolibre.com/items/${id}`)
+      .then((response) => response.json())
+      .then((myProduct) => {
+        setResult(myProduct);
+        setLoad(false);
+      });
   }, []);
 
   if (load) {
@@ -25,13 +25,18 @@ export const ItemDetailContainer = () => {
   }
   return (
     <div id="ItemDetailContainer">
-      <div id="containerLeft">
-        <ItemDetail item={result} />
-      </div>
-      <div id="containerRight">
-        <ItemCount initial="0" min="0" max="10" />
-        <button>Comprar</button>
-      </div>
+      <ItemDetail item={result} />
     </div>
   );
 };
+
+// setLoad(true);
+// new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const data = { id: 1, name: "Silla", price: "1000", stock: 50 };
+//     resolve(data);
+//   }, 1000);
+// }).then((data) => {
+//   setResult(data);
+//   setLoad(false);
+// });

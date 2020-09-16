@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "./ItemCount.css";
 
 export const ItemCount = (props) => {
   const [counter, setCounter] = useState(props.initial);
@@ -10,8 +11,8 @@ export const ItemCount = (props) => {
   };
 
   return (
-    <div id="ItemCount">
-      <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmitHandler} id="ItemCount">
+      <div>
         <label>Cantidad:</label>
         <input
           type="number"
@@ -19,9 +20,10 @@ export const ItemCount = (props) => {
           min={props.min}
           max={props.max}
           ref={quantity}
-        ></input>
-        <button type="submit">Añadir al carrito</button>
-      </form>
-    </div>
+        />
+      </div>
+      <button type="submit">Añadir al carrito</button>
+      <button>Comprar</button>
+    </form>
   );
 };

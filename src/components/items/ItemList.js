@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import { Item } from "./Item";
 import "./ItemList.css";
-
+import { NavLink } from "react-router-dom";
 
 export const ItemList = () => {
   const [result, setResult] = useState([]);
@@ -36,10 +36,17 @@ export const ItemList = () => {
     return <div>Loading...</div>;
   }
 
+  const style = {
+    color: "inherit",
+    textDecoration: "none",
+  };
+
   return (
     <div id="ItemList">
       {products.map((element) => (
-        <Item key={element.id} product={element} />
+        <NavLink to={`item/${element.id}`} style={style}>
+          <Item key={element.id} product={element} />
+        </NavLink>
       ))}
     </div>
   );

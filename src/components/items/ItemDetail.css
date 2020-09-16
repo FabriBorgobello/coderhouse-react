@@ -1,8 +1,34 @@
-#ItemDetail > * {
-  margin: 0.5rem 0rem;
+#ItemDetail {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
 }
-#ItemDetail #name {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+
+#ItemDetail #containerRight {
+  width: 40%;
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#containerRight #productInfo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#containerRight #productInfo #name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+#containerRight #productInfo #price {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+#containerRight #productInfo #secundaria > * {
+  text-align: left;
+  line-height: 1.5rem;
 }
