@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Item } from "./Item";
 import "./ItemList.css";
 import { NavLink } from "react-router-dom";
+import { Loading } from "../loading/Loading";
 
 export const ItemList = () => {
   const [result, setResult] = useState([]);
@@ -33,7 +34,7 @@ export const ItemList = () => {
   }, 1000);
 
   if (load) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const style = {
@@ -44,9 +45,12 @@ export const ItemList = () => {
   return (
     <div id="ItemList">
       {products.map((element) => (
-        <NavLink to={`item/${element.id}`} style={style}>
-          <Item key={element.id} product={element} />
-        </NavLink>
+        <NavLink
+          to={`item/${element.id}`}
+          style={style}
+          key={element.id}
+          children={<Item product={element} />}
+        />
       ))}
     </div>
   );

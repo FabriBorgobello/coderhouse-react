@@ -1,10 +1,11 @@
 import React from "react";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
+import { Loading } from "../loading/Loading";
 
 export const ItemDetail = (props) => {
   if (!props.item.pictures) {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   return (
@@ -20,11 +21,11 @@ export const ItemDetail = (props) => {
             <p id="price">$ {props.item.price}</p>
             <hr />
           </div>
-          
+
           <div id="secundaria">
-          <p id="garantia">{props.item.warranty}</p>
-          <p id="vendidos">Ventas: {props.item.sold_quantity}</p>
-          <p id="stock">Stock: {props.item.available_quantity}</p>
+            <p id="garantia">{props.item.warranty}</p>
+            <p id="vendidos">Ventas: {props.item.sold_quantity}</p>
+            <p id="stock">Stock: {props.item.available_quantity}</p>
           </div>
         </div>
         <ItemCount initial="0" min="0" max="10" />

@@ -15,7 +15,11 @@ export const NavBar = () => {
     <nav id="NavBar">
       <NavLink to={`/`} style={style}>
         <div id="brand">
-          <span>Macaronería</span>
+          <img
+            src="https://img.icons8.com/color/48/000000/xiaomi.png"
+            alt="Xiaomi-Logo"
+          />
+          <span>Xiaomería</span>
         </div>
       </NavLink>
       <ul id="options">
