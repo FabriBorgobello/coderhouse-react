@@ -8,6 +8,7 @@ export const ItemDetail = (props) => {
     return <Loading />;
   }
 
+
   return (
     <div id="ItemDetail">
       <div img="containerLeft">
@@ -28,7 +29,7 @@ export const ItemDetail = (props) => {
             <p id="stock">Stock: {props.item.available_quantity}</p>
           </div>
         </div>
-        <ItemCount initial="0" min="0" max="10" />
+        <ItemCount initial="1" min="1" max={props.item.available_quantity} item={props.item}/>
       </div>
     </div>
   );

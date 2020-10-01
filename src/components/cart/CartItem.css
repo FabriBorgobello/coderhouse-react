@@ -1,0 +1,22 @@
+#CartItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.13);
+}
+
+#CartItem #right{
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#CartItem #right #title {
+    width: 35%;
+}
+#CartItem #right #price {
+    font-size: 1.5rem;
+    font-weight: 600;
+}

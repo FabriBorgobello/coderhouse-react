@@ -5,20 +5,21 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { NavBar } from "./components/navbar/NavBar";
 import { Home } from "./components/Home";
-import { Cart } from "./components/Cart";
+import { Cart } from "./components/cart/Cart";
 import { ItemDetailContainer } from "./components/items/ItemDetailContainer";
+import { CartProvider } from "./components/cart/CartContext";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <NavBar />
-        <Switch>
-          <Route exact path="/" children={<Home />} />
-          <Route exact path="/cart" children={<Cart />} />
-          <Route path="/item/:id" children={<ItemDetailContainer />} />
-        </Switch>
-      </div>
+        <CartProvider>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cart" component={Cart} />
+            <Route path="/item/:id" component={ItemDetailContainer} />
+          </Switch>
+        </CartProvider>
     </Router>
   );
 }

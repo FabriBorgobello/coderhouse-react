@@ -1,33 +1,30 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./ItemCount.css";
+import { CartContext } from "../cart/CartContext";
+import { NavLink } from "react-router-dom";
 
 export const ItemCount = (props) => {
+  const [cart, setCart] = useContext(CartContext);
   const [counter, setCounter] = useState(props.initial);
-  const quantity = useRef(null);
 
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-    setCounter(quantity.current.value);
+  const addToCart = () => {
+    setCart([...cart, { product: props.item, quantity: counter }]);
   };
-  useEffect(() => {}, [counter]);
 
   return (
-    <form onSubmit={onSubmitHandler} id="ItemCount">
-      <div>
-        <label>Cantidad:</label>
-        <input
-          type="number"
-          value={counter}
-          min={props.min}
-          max={props.max}
-          ref={quantity}
-          onChange={(event) => {
-            setCounter(event.target.value);
-          }}
-        />
-      </div>
-      <button type="submit">Añadir al carrito</button>
-      <button>Comprar {counter}</button>
-    </form>
+    <>
+      <label>Cantidad:</label>
+      <input
+        type="number"
+        value={counter}
+        min={props.min}
+        max={props.max}
+        onChange={(event) => {
+          setCounter(event.target.value);
+        }}
+      />
+      <button onClick={addToCart}>Añadir {counter} al carrito</button>
+      <NavLink to="/cart" children="Ir al carrito" />
+    </>
   );
 };
