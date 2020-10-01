@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import { CartItem } from "./CartItem";
+import { EmptyCart } from "./EmptyCart";
 
 export const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
 
   return (
     <div>
+      {cart.length === 0 && <EmptyCart />}
       {cart.map((purchase) => {
         return (
           <>

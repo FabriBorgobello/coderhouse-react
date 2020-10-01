@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./CartItem.css";
-import { CartContext } from "./CartContext";
 
 export const CartItem = (props) => {
-  const [cart, setCart] = useContext(CartContext);
-
   return (
     <div id="CartItem">
       <img src={props.thumbnail} alt="producto" />
