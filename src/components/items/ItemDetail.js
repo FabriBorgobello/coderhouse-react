@@ -9,9 +9,6 @@ export const ItemDetail = (props) => {
   const [cart, setCart] = useContext(CartContext);
   const [counter, setCounter] = useState("1");
 
-  if (!props.item.image) {
-    return <Loading />;
-  }
   const addToCart = () => {
     setCart([...cart, { product: props.item, quantity: counter }]);
     console.log(cart);
@@ -21,6 +18,10 @@ export const ItemDetail = (props) => {
     setCounter(value);
   };
 
+  if (!props.item.image) {
+    return <Loading />;
+  }
+  
   return (
     <div id="ItemDetail">
       <div id="containerLeft">

@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Item } from "./Item";
-import "./ItemList.css";
-import { NavLink } from "react-router-dom";
+import { Item } from "../items/Item";
+import "../items/ItemList.css";
+import { NavLink, useParams } from "react-router-dom";
 import { Loading } from "../loading/Loading";
 import { getFirestore } from "../../firebase";
 
-export const ItemList = () => {
+export const Category = () => {
   const [items, setItems] = useState([]);
   const [load, setLoad] = useState("true");
+  const { category } = useParams();
 
   useEffect(() => {
     setLoad(true);
     const db = getFirestore();
-    const itemCollection = db.collection("items");
+    const itemCollection = db
+      .collection("items")
+      .where("categoryId", "==", parseInt(category));
+
     itemCollection
       .get()
       .then((querySnapshot) => {
-        console.log(querySnapshot);
         if (querySnapshot.size === 0) {
           console.log("No results!");
         }
@@ -29,7 +32,7 @@ export const ItemList = () => {
       .finally(() => {
         setLoad(false);
       });
-  }, []);
+  }, [category]);
 
   if (load) {
     return <Loading />;

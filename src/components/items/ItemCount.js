@@ -6,7 +6,7 @@ export const ItemCount = (props) => {
 
   useEffect(() => {
     props.handleCounter(quantity);
-  }, [quantity]);
+  }, [props, quantity]);
 
   return (
     <div id="ItemCount">
