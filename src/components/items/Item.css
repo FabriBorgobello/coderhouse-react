@@ -1,5 +1,6 @@
 .itemCard {
   width: 20vw;
+  height: 350px;
   background-color: rgb(230, 230, 230);
   margin: 1rem;
   padding: 0.5rem;
@@ -30,6 +31,7 @@
   margin: 0.5rem;
 }
 .itemCard #bottom #price {
-  text-align: left;
+  text-align: right;
   font-size: 1.5rem;
+  font-weight: 600;
 }

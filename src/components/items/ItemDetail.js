@@ -9,7 +9,7 @@ export const ItemDetail = (props) => {
   const [cart, setCart] = useContext(CartContext);
   const [counter, setCounter] = useState("1");
 
-  if (!props.item.pictures) {
+  if (!props.item.image) {
     return <Loading />;
   }
   const addToCart = () => {
@@ -23,8 +23,8 @@ export const ItemDetail = (props) => {
 
   return (
     <div id="ItemDetail">
-      <div img="containerLeft">
-        <img src={props.item.pictures[0].url} alt={props.item.name} />
+      <div id="containerLeft">
+        <img src={props.item.image} alt={props.item.title} />
       </div>
 
       <div id="containerRight">
@@ -36,21 +36,29 @@ export const ItemDetail = (props) => {
           </div>
 
           <div id="secundaria">
-            <p id="garantia">{props.item.warranty}</p>
-            <p id="vendidos">Ventas: {props.item.sold_quantity}</p>
-            <p id="stock">Stock: {props.item.available_quantity}</p>
+            <p id="description">{props.item.description}</p>
+            <p id="stock">Stock: {props.item.stock}</p>
           </div>
         </div>
         <ItemCount
           value={counter}
           initial="1"
           min="1"
-          max={props.item.available_quantity}
+          max={props.item.stock}
           item={props.item}
           handleCounter={handleCounter}
         />
-        <button onClick={addToCart}>Añadir {counter} al carrito</button>
-        <NavLink to="/cart" children="Ir al carrito" />
+        <div id="buttons">
+          <input
+            type="button"
+            onClick={addToCart}
+            value={`Añadir ${counter} al carrito`}
+          />
+          <NavLink
+            to="/cart"
+            children={<input type="button" value="Ir al carrito" />}
+          />
+        </div>
       </div>
     </div>
   );

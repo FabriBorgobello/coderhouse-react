@@ -9,7 +9,7 @@ export const ItemCount = (props) => {
   }, [quantity]);
 
   return (
-    <>
+    <div id="ItemCount">
       <label>Cantidad:</label>
       <input
         type="number"
@@ -20,6 +20,6 @@ export const ItemCount = (props) => {
           setQuantity(e.target.value);
         }}
       />
-    </>
+    </div>
   );
 };

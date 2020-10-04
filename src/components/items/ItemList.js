@@ -1,37 +1,34 @@
-// API:       "https://api.mercadolibre.com/sites/MLA/search?category=MLA1648&limit=10"
-//      "https://api.mercadolibre.com/sites/MLA/search?q=Xiaomi&limit=10"
-//"https://api.mercadolibre.com/items/MLA841413632"
-
 import React, { useEffect, useState } from "react";
 import { Item } from "./Item";
 import "./ItemList.css";
 import { NavLink } from "react-router-dom";
 import { Loading } from "../loading/Loading";
+import { getFirestore } from "../../firebase";
 
 export const ItemList = () => {
-  const [result, setResult] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [items, setItems] = useState([]);
   const [load, setLoad] = useState("true");
-  const arr = [];
 
   useEffect(() => {
-    fetch("https://api.mercadolibre.com/sites/MLA/search?q=Xiaomi&limit=50")
-      .then((response) => response.json())
-      .then((data) =>
-        setResult(
-          data.results.map((item) => {
-            fetch(`https://api.mercadolibre.com/items/${item.id}`)
-              .then((response) => response.json())
-              .then((allProducts) => arr.push(allProducts));
-            setProducts(arr);
-          })
-        )
-      );
+    setLoad(true);
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    itemCollection
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          console.log("No results!");
+        }
+        // console.log(querySnapshot.docs[0].id);
+        setItems(querySnapshot.docs.map((doc) => doc));
+      })
+      .catch((error) => {
+        console.log("error searching items", error);
+      })
+      .finally(() => {
+        setLoad(false);
+      });
   }, []);
-
-  setTimeout(() => {
-    setLoad(false);
-  }, 1000);
 
   if (load) {
     return <Loading />;
@@ -44,12 +41,14 @@ export const ItemList = () => {
 
   return (
     <div id="ItemList">
-      {products.map((element) => (
+      {!items && <div>No hay productos para mostrar</div>}
+
+      {items.map((item) => (
         <NavLink
-          to={`item/${element.id}`}
+          to={`items/${item.id}`}
           style={style}
-          key={element.id}
-          children={<Item product={element} />}
+          key={item.id}
+          children={<Item item={item.data()} />}
         />
       ))}
     </div>
