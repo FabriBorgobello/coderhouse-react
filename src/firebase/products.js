@@ -1,6 +1,6 @@
-export const products = [
+export const SMARTPHONES = [
   {
-    // id: 0,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 8 Dual SIM 64 GB Space black 4 GB RAM",
     price: 37997,
     description:
@@ -9,9 +9,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 1,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 9S Dual SIM 128 GB Blanco glaciar 6 GB RAM",
     price: 54140,
     description:
@@ -22,7 +25,7 @@ export const products = [
     hottest: false,
   },
   {
-    // id: 2,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 9 Pro Dual SIM 64 GB Verde tropical 6 GB RAM",
     price: 55000,
     description:
@@ -31,9 +34,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_742300-MLA42643772187_072020-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 3,
+    categoryId: 0,
     title: "Xiaomi Mi Note 10 Lite Dual SIM 64 GB Negro medianoche 6 GB RAM",
     price: 73999,
     description:
@@ -42,9 +48,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_923384-MLA43194671739_082020-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 4,
+    categoryId: 0,
     title: "Xiaomi Mi A3 Dual SIM 128 GB Blanco puro 4 GB RAM",
     price: 68999,
     description:
@@ -53,9 +62,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_854217-MLA31937363054_082019-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 5,
+    categoryId: 0,
     title: "Xiaomi Redmi 7A (13 Mpx) Dual SIM 32 GB Morning blue 2 GB RAM",
     price: 32000,
     description:
@@ -64,9 +76,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_781841-MLA32459346976_102019-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 6,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 8 Dual SIM 64 GB Space black 4 GB RAM",
     price: 37997,
     description:
@@ -75,9 +90,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 7,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 9S Dual SIM 128 GB Blanco glaciar 6 GB RAM",
     price: 54140,
     description:
@@ -86,9 +104,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_2X_771653-MLA41784624143_052020-F.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 8,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 9 Pro Dual SIM 64 GB Verde tropical 6 GB RAM",
     price: 55000,
     description:
@@ -97,9 +118,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_742300-MLA42643772187_072020-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 9,
+    categoryId: 0,
     title: "Xiaomi Mi Note 10 Lite Dual SIM 64 GB Negro medianoche 6 GB RAM",
     price: 73999,
     description:
@@ -108,9 +132,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_923384-MLA43194671739_082020-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 10,
+    categoryId: 0,
     title: "Xiaomi Mi A3 Dual SIM 128 GB Blanco puro 4 GB RAM",
     price: 68999,
     description:
@@ -119,9 +146,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_854217-MLA31937363054_082019-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 11,
+    categoryId: 0,
     title: "Xiaomi Redmi 7A (13 Mpx) Dual SIM 32 GB Morning blue 2 GB RAM",
     price: 32000,
     description:
@@ -130,9 +160,12 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_781841-MLA32459346976_102019-O.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
   {
-    // id: 12,
+    categoryId: 0,
     title: "Xiaomi Redmi Note 8 Dual SIM 64 GB Space black 4 GB RAM",
     price: 37997,
     description:
@@ -141,5 +174,50 @@ export const products = [
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
     hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
+  },
+];
+
+export const SMARTDEVICES = [
+  {
+    categoryId: 1,
+    title: "Mi Smart Band 4C",
+    price: 2099,
+    description:
+      "La pulsera inteligente de fitness se lanzó como una variante económica de la Mi Band 4 que se lanzó el año pasado. Dicho wearable cuenta con un monitor de frecuencia cardíaca y se ha optimizado para ofrecer aproximadamente 14 días de duración de la batería con una carga completa. Cabe destacar que dicha batería es de 130 mAh, la cual tiene soporte para carga USB directa. Es decir, que puede cargar a través de un conector USB A que lleva “escondido” dentro de la propia pulsera, y así evitarás perder los cables de carga. También viene con soporte de carga rápida, que le permite así cargarse completamente en solo 2 horas. Por un lado, este rastreador de ejercicios de la marca cuenta con una pantalla rectangular a color de 1.08 pulgadas. Dicha pantalla TFT de 1.08 pulgadas tiene una resolución de 128 × 220 píxeles. El diseño de la banda inteligente se asemeja a algunas que ya hay en el mercado. Y, por ello, se adapta a los estándares de lo que esperan y quieren los usuarios. Por otro lado, viene con correas de silicona en opciones de color negro, azul, rojo y verde.",
+    image:
+      "https://tuxiaomi.es/wp-content/uploads/2020/07/xMi-Smart-Band-4C_01.jpg.pagespeed.ic.1JPXoVZB8G.webp",
+    stock: 100,
+    hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
+  },
+  {
+    categoryId: 1,
+    title: "Mi Electric Scooter 1S",
+    price: 78299,
+    description:
+      "Intuitiva y fácil de usar. 30 km., batería de largo alcance. Sistema de doble frenado. Diseño plegable y portátil. Cada aspecto de Mi Electric Scooter ha sido diseñado teniendo en cuenta su sencillez. El marco del monopatín, los componentes y accesorios han sido diseñados poniendo al usuario y su usabilidad en el centro de todo. Prueba de ello es que tan solo necesitas un botón para poner en movimiento el patinete. Mi Electric Scooter está diseñado para enamorarte a ti y a los que te rodean.",
+    image:
+      "https://http2.mlstatic.com/D_NQ_NP_940621-MLA41893558872_052020-O.webp",
+    stock: 100,
+    hottest: false,
+  },
+  {
+    categoryId: 1,
+    title: "Mi True Wireless Earbuds Basic 2",
+    price: 2399,
+    description:
+      "El nuevo modelo cuenta con DSP Control de toque con reducción de ruido con micrófono Auriculares manos libres. Xiaomi Redmi Airdots están equipados con chips Bluetooth 5.0, que ofrecen un sonido estéreo de alta calidad, bajos fuertes y mantienen una baja latencia cuando se juega o se hacen videos. El micrófono incorporado y el diseño de cancelación de ruido, tanto en el auricular izquierdo como el derecho soportan responder y colgar llamadas, brindándole una grata experiencia. Con un peso de sólo 4.1g y un tamaño mini, los auriculares son cómodos para usar durante ejercicios, conducción o en cualquier ocasión.",
+    image:
+      "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1600420058.83851263.png?width=420&height=420",
+    stock: 100,
+    hottest: false,
+    cart: false,
+    quantity: 1,
+    total: 0,
   },
 ];

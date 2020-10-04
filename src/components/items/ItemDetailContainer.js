@@ -32,7 +32,7 @@ export const ItemDetailContainer = () => {
       .finally(() => {
         setLoad(false);
       });
-  }, []);
+  }, [id]);
 
   if (load) {
     return <Loading />;
