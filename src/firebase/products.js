@@ -1,4 +1,4 @@
-export const SMARTPHONES = [
+export const PRODUCTS = [
   {
     categoryId: 0,
     title: "Xiaomi Redmi Note 8 Dual SIM 64 GB Space black 4 GB RAM",
@@ -8,10 +8,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -22,7 +19,6 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_2X_771653-MLA41784624143_052020-F.webp",
     stock: 100,
-    hottest: false,
   },
   {
     categoryId: 0,
@@ -33,10 +29,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_742300-MLA42643772187_072020-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -47,10 +40,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_923384-MLA43194671739_082020-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -61,10 +51,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_854217-MLA31937363054_082019-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -75,10 +62,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_781841-MLA32459346976_102019-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -89,10 +73,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -103,10 +84,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_2X_771653-MLA41784624143_052020-F.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -117,10 +95,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_742300-MLA42643772187_072020-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -131,10 +106,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_923384-MLA43194671739_082020-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -145,10 +117,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_854217-MLA31937363054_082019-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -159,10 +128,7 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_781841-MLA32459346976_102019-O.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 0,
@@ -173,14 +139,8 @@ export const SMARTPHONES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_2X_947723-MLA43556746436_092020-F.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
-];
-
-export const SMARTDEVICES = [
   {
     categoryId: 1,
     title: "Mi Smart Band 4C",
@@ -190,10 +150,7 @@ export const SMARTDEVICES = [
     image:
       "https://tuxiaomi.es/wp-content/uploads/2020/07/xMi-Smart-Band-4C_01.jpg.pagespeed.ic.1JPXoVZB8G.webp",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
   {
     categoryId: 1,
@@ -204,7 +161,6 @@ export const SMARTDEVICES = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_940621-MLA41893558872_052020-O.webp",
     stock: 100,
-    hottest: false,
   },
   {
     categoryId: 1,
@@ -215,9 +171,6 @@ export const SMARTDEVICES = [
     image:
       "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1600420058.83851263.png?width=420&height=420",
     stock: 100,
-    hottest: false,
-    cart: false,
     quantity: 1,
-    total: 0,
   },
 ];

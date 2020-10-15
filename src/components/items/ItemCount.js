@@ -10,7 +10,7 @@ export const ItemCount = (props) => {
 
   return (
     <div id="ItemCount">
-      <label>Cantidad:</label>
+      <label>Cantidad: (Stock: {props.item.stock})</label>
       <input
         type="number"
         min={props.min}

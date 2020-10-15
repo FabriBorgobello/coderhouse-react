@@ -1,4 +1,4 @@
 export const CATEGORIES = [
-  { id: "0", key: "0", name: "Smartphones" },
-  { id: "1", key: "1", name: "Smart Devices" },
+  { id: "0", key: "smartphones", name: "Smartphones" },
+  { id: "1", key: "smartDevices", name: "Smart Devices" },
 ];

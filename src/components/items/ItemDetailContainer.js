@@ -22,7 +22,6 @@ export const ItemDetailContainer = () => {
         if (doc.exists) {
           setItem({ id: doc.id, ...doc.data() });
         } else {
-          // doc.data() will be undefined in this case
           console.log("El producto solicitado no existe!");
         }
       })

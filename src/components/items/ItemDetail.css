@@ -1,44 +1,36 @@
 #ItemDetail {
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-content: space-around;
+  height: 75vh;
+  border-radius: 0.25rem;
 }
 #ItemDetail #containerLeft {
-  width: 100%;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border-radius: 0.25rem;
 }
 #ItemDetail #containerLeft img {
-  height: 500px;
-  max-width: 100%;
+  height: 100%;
 }
+
 #ItemDetail #containerRight {
-  width: 100%;
-  padding: 2rem 3rem 0 3rem;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  padding: 0 2rem;
 }
-#containerRight #productInfo #name {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+#ItemDetail #containerRight #top #name {
+  font-size: 1.3rem;
+  font-weight: 700;
 }
-#containerRight #productInfo #price {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+#ItemDetail #containerRight #top #price {
+  font-size: 2.5rem;
 }
-#containerRight #productInfo #secundaria > * {
-  text-align: left;
-  line-height: 1.5rem;
-}
-#ItemDetail #containerRight #buttons {
-  width: 100%;
+#ItemDetail #containerRight #bottom {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }

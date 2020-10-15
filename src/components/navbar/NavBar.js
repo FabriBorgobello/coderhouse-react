@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import CartIcon from "./CartIcon";
 import { getFirestore } from "../../firebase";
+import { Dropdown, Icon, Navbar } from "react-materialize";
 
 export const NavBar = () => {
-  const [load, setLoad] = useState(false);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    setLoad(true);
     const db = getFirestore();
     const categoriesCollection = db.collection("categories");
     categoriesCollection
@@ -22,44 +20,71 @@ export const NavBar = () => {
       })
       .catch((error) => {
         console.log("error searching items", error);
-      })
-      .finally(() => {
-        setLoad(false);
       });
   }, []);
 
-  const style = {
-    color: "inherit",
-    textDecoration: "none",
-  };
-
   return (
-    <nav id="NavBar">
-      <NavLink to={`/`} style={style}>
-        <div id="brand">
+    <Navbar
+      alignLinks="right"
+      brand={
+        <NavLink to={`/`} style={{ display: "flex", alignItems: "center" }}>
           <img
+            style={{ marginLeft: "0.5rem" }}
             src="https://img.icons8.com/color/48/000000/xiaomi.png"
             alt="Xiaomi-Logo"
           />
-          <span>Xiaomería</span>
-        </div>
-      </NavLink>
-      <ul id="options">
+          <span style={{ marginLeft: "0.5rem" }}>Xiaomería</span>
+        </NavLink>
+      }
+      id="mobile-nav"
+      menuIcon={<Icon>menu</Icon>}
+      options={{
+        draggable: true,
+        edge: "left",
+        inDuration: 250,
+        onCloseEnd: null,
+        onCloseStart: null,
+        onOpenEnd: null,
+        onOpenStart: null,
+        outDuration: 200,
+        preventScrolling: true,
+      }}
+    >
+      <Dropdown
+        id="Dropdown_6"
+        options={{
+          alignment: "left",
+          autoTrigger: true,
+          closeOnClick: true,
+          constrainWidth: true,
+          container: null,
+          coverTrigger: true,
+          hover: false,
+          inDuration: 150,
+          onCloseEnd: null,
+          onCloseStart: null,
+          onOpenEnd: null,
+          onOpenStart: null,
+          outDuration: 250,
+        }}
+        trigger={
+          <a href="#!">
+            Categorías <Icon right>arrow_drop_down</Icon>
+          </a>
+        }
+      >
         {categories.map((category) => {
           return (
             <NavLink
-              key={`/categories/${category.id}`}
+              key={`/categories/${category.key}`}
               to={`/categories/${category.id}`}
               className="option"
               children={category.name}
-              style={style}
             />
           );
         })}
-        <li className="option">
-          <CartIcon />
-        </li>
-      </ul>
-    </nav>
+      </Dropdown>
+      <NavLink to={`/cart`} children={<CartIcon />} />
+    </Navbar>
   );
 };

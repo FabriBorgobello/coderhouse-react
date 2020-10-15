@@ -16,12 +16,14 @@ export const ItemList = () => {
     itemCollection
       .get()
       .then((querySnapshot) => {
-        console.log(querySnapshot);
         if (querySnapshot.size === 0) {
           console.log("No results!");
         }
-        // console.log(querySnapshot.docs[0].id);
-        setItems(querySnapshot.docs.map((doc) => doc));
+        setItems(
+          querySnapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
       })
       .catch((error) => {
         console.log("error searching items", error);
@@ -49,7 +51,7 @@ export const ItemList = () => {
           to={`/items/${item.id}`}
           style={style}
           key={item.id}
-          children={<Item item={item.data()} />}
+          children={<Item item={item} />}
         />
       ))}
     </div>
