@@ -4,6 +4,7 @@ import { Footer as MaterializeFooter } from "react-materialize";
 export const Footer = () => {
   return (
     <MaterializeFooter
+      style={{}}
       copyrights="CoderHouse 2020"
       moreLinks={
         <a

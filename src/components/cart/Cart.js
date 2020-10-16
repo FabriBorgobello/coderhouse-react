@@ -12,9 +12,18 @@ export const Cart = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [emailConfirm, setEmailConfirm] = useState("");
   const [total, setTotal] = useState(0);
   const [load, setLoad] = useState(false);
   const [orderId, setOrderId] = useState(null);
+
+  useEffect(() => {
+    let myTotal = 0;
+    cart.forEach((element) => {
+      myTotal += element.quantity * element.item.price;
+    });
+    setTotal(myTotal);
+  }, [cart]);
 
   const handlePurchase = () => {
     //Create order.
@@ -26,6 +35,7 @@ export const Cart = () => {
       },
       items: cart,
       date: Date.now(),
+      status: "generated",
       total: total,
     };
 
@@ -41,6 +51,8 @@ export const Cart = () => {
         console.error("Error adding document: ", error);
         setLoad(false);
       });
+
+    setCart([]);
   };
 
   const fetchCart = () =>
@@ -58,13 +70,6 @@ export const Cart = () => {
       );
     });
 
-  const calcTotal = () => {
-    let myTotal = 0;
-    cart.forEach((element) => {
-      myTotal += element.quantity * element.item.price;
-    });
-    return myTotal;
-  };
   if (load) return <Loading />;
 
   return (
@@ -76,20 +81,21 @@ export const Cart = () => {
           <h3>Tu carrito:</h3>
           {fetchCart()}
           <div style={{ marginBottom: "15%" }}>
-            <p style={{ textAlign: "right" }}>Total a pagar: $ {calcTotal()}</p>
+            <p style={{ textAlign: "right" }}>Total a pagar: $ {total}</p>
             <UserModal
               setName={setName}
               setPhone={setPhone}
               setEmail={setEmail}
+              setEmailConfirm={setEmailConfirm}
               name={name}
               phone={phone}
               email={email}
+              emailConfirm={emailConfirm}
               handlePurchase={handlePurchase}
             />
           </div>
         </div>
       )}
-      {/* Redirección al comprar */}
       {orderId && <Redirect to={`/order/${orderId}`} />}
     </div>
   );

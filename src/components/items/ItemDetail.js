@@ -17,7 +17,13 @@ export const ItemDetail = (props) => {
       cart.forEach((element) => {
         if (element.item.id === props.item.id) {
           const newCart = cart.filter((el) => el.item.id !== props.item.id);
-          setCart([...newCart, { item: props.item, quantity: element.quantity + parseInt(counter) }]);
+          setCart([
+            ...newCart,
+            {
+              item: props.item,
+              quantity: element.quantity + parseInt(counter),
+            },
+          ]);
         }
       });
     } else {
@@ -57,12 +63,9 @@ export const ItemDetail = (props) => {
             item={props.item}
             handleCounter={handleCounter}
           />
-
           <Button
+            className="bottomBtn"
             node="button"
-            style={{
-              marginRight: "5px",
-            }}
             waves="light"
             onClick={addToCart}
           >
@@ -71,7 +74,7 @@ export const ItemDetail = (props) => {
           </Button>
 
           <NavLink to="/cart">
-            <Button>
+            <Button className="bottomBtn">
               <Icon left>shopping_cart</Icon>
               Ver mi carrito
             </Button>

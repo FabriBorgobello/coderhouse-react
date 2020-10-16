@@ -12,6 +12,11 @@ export const ItemCount = (props) => {
     <div id="ItemCount">
       <label>Cantidad: (Stock: {props.item.stock})</label>
       <input
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "0.25rem",
+          opacity: "0.8",
+        }}
         type="number"
         min={props.min}
         max={props.max}

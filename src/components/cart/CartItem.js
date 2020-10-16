@@ -11,7 +11,7 @@ export const CartItem = (props) => {
         <p id="title">{props.title}</p>
         <div>
           <p id="quantity">Cantidad: {props.quantity}</p>
-          <p>Stock disponible: {props.stock}</p>
+          {props.stock && <p>Stock disponible: {props.stock}</p>}
         </div>
         <p id="price">$ {props.price * props.quantity}</p>
       </div>

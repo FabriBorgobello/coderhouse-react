@@ -8,6 +8,7 @@ import db from "../../firebase";
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const [load, setLoad] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
   let { id } = useParams();
 
@@ -22,7 +23,7 @@ export const ItemDetailContainer = () => {
         if (doc.exists) {
           setItem({ id: doc.id, ...doc.data() });
         } else {
-          console.log("El producto solicitado no existe!");
+          setNotFound(true);
         }
       })
       .catch(function (error) {
@@ -33,8 +34,20 @@ export const ItemDetailContainer = () => {
       });
   }, [id]);
 
+  const style = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80vh",
+  };
+
   if (load) {
-    return <Loading />;
+    return <Loading style={style} />;
+  }
+  if (notFound) {
+    return (
+      <h3 style={style}>No se ha encontrado el producto seleccionado.</h3>
+    );
   }
   return (
     <div id="ItemDetailContainer">

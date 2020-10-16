@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 5rem;
+  height: 80vh;
 }
 #EmptyCart img {
   width: 150px;
