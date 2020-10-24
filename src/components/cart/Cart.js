@@ -9,10 +9,6 @@ import { UserModal } from "./UserModal";
 
 export const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailConfirm, setEmailConfirm] = useState("");
   const [total, setTotal] = useState(0);
   const [load, setLoad] = useState(false);
   const [orderId, setOrderId] = useState(null);
@@ -25,13 +21,13 @@ export const Cart = () => {
     setTotal(myTotal);
   }, [cart]);
 
-  const handlePurchase = () => {
+  const handlePurchase = (data) => {
     //Create order.
     const newOrder = {
       buyer: {
-        name: name,
-        phone: phone,
-        email: email,
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
       },
       items: cart,
       date: Date.now(),
@@ -73,7 +69,7 @@ export const Cart = () => {
   if (load) return <Loading />;
 
   return (
-    <div style={{ margin: "0 10%" }}>
+    <div style={{ margin: "0 10%", height: "80vh" }}>
       {/* Carro vacío */}
       {cart.length === 0 && <EmptyCart />}
       {cart.length !== 0 && (
@@ -81,18 +77,10 @@ export const Cart = () => {
           <h3>Tu carrito:</h3>
           {fetchCart()}
           <div style={{ marginBottom: "15%" }}>
-            <p style={{ textAlign: "right" }}>Total a pagar: $ {total}</p>
-            <UserModal
-              setName={setName}
-              setPhone={setPhone}
-              setEmail={setEmail}
-              setEmailConfirm={setEmailConfirm}
-              name={name}
-              phone={phone}
-              email={email}
-              emailConfirm={emailConfirm}
-              handlePurchase={handlePurchase}
-            />
+            <p style={{ textAlign: "right", fontSize: "2rem" }}>
+              Total a pagar: $ {total}
+            </p>
+            <UserModal handlePurchase={handlePurchase} />
           </div>
         </div>
       )}

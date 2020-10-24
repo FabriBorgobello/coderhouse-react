@@ -1,34 +1,27 @@
-import React from "react";
-import { Button, Modal, TextInput } from "react-materialize";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Button, Modal } from "react-materialize";
+import "./UserModal.css";
 
-export const UserModal = ({
-  setName,
-  setPhone,
-  setEmail,
-  setEmailConfirm,
-  name,
-  phone,
-  email,
-  emailConfirm,
-  handlePurchase,
-}) => {
+export const UserModal = ({ handlePurchase }) => {
+  const { register, handleSubmit, errors } = useForm();
+  const [differentEmail, setDifferentEmail] = useState(false);
+
+  const onSubmit = (data) => {
+    if (data.email === data.confirmEmail) {
+      handlePurchase(data);
+    } else {
+      setDifferentEmail(true);
+    }
+  };
+
   return (
     <Modal
       style={{ padding: "1rem" }}
-      actions={[
-        <Button
-          modal="close"
-          className="col l2 offset-l1 offset-s4 s4"
-          node="button"
-          waves="light"
-          onClick={handlePurchase}
-        >
-          Comprar
-        </Button>,
-      ]}
+      actions=""
       bottomSheet={false}
       fixedFooter={false}
-      header="Introduzca sus datos"
+      header="Introduce tus datos"
       id="Modal-0"
       open={false}
       options={{
@@ -45,40 +38,69 @@ export const UserModal = ({
         startingTop: "4%",
       }}
       trigger={
-        <Button large className="right orange lighten-2" node="button">
-          Comprar
+        <Button large className="right btn" node="button">
+          Continuar
         </Button>
       }
     >
-      <div style={{ margin: "3rem 0" }}>
-        <TextInput
-          id="TextInput-1"
-          label="Nombre y Apellido"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextInput
-          id="TextInput-2"
-          label="Teléfono"
-          type="number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <TextInput
-          id="TextInput-3"
-          label="Email"
-          email
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextInput
-          id="TextInput-4"
-          label="Confirmar Email"
-          email
-          value={emailConfirm}
-          onChange={(e) => setEmailConfirm(e.target.value)}
-        />
-      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label htmlFor="name">Nombre y apellido</label>
+          <input
+            name="name"
+            ref={register({
+              required: true,
+              validate: (value) => value !== "admin" || "Nice try!",
+            })}
+          />
+          {errors.name && <div>Este campo es obligatorio.</div>}
+        </div>
+        <div>
+          <label htmlFor="phone">Teléfono</label>
+          <input
+            type="number"
+            name="phone"
+            ref={register({ required: true })}
+          />
+          {errors.phone && <div>Este campo es obligatorio.</div>}
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            type="email"
+            ref={register({
+              required: true,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              },
+            })}
+          />
+          {errors.email?.type === "required" && (
+            <div>Este campo es obligatorio.</div>
+          )}
+          {errors.email?.type === "pattern" && <div>Formato inválido</div>}
+        </div>
+        <div>
+          <label htmlFor="confirmEmail">Confirmar Email</label>
+          <input
+            name="confirmEmail"
+            type="email"
+            ref={register({
+              required: true,
+              pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i },
+            })}
+          />
+          {errors.confirmEmail?.type === "required" && (
+            <div>Este campo es obligatorio.</div>
+          )}
+          {errors.confirmEmail?.type === "pattern" && (
+            <div>Formato inválido</div>
+          )}
+          {differentEmail && <div>Los emails no coinciden</div>}
+        </div>
+        <button type="input" className="right btn" children="Comprar" />
+      </form>
     </Modal>
   );
 };

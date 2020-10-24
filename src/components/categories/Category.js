@@ -54,5 +54,12 @@ export const Category = () => {
     textDecoration: "none",
   };
 
-  return <div id="ItemList">{renderCategory()}</div>;
+  return (
+    <div
+      id="ItemList"
+      style={{ margin: "1rem 2rem 1rem 2rem", minHeight: "80vh" }}
+    >
+      {renderCategory()}
+    </div>
+  );
 };

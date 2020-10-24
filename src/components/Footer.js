@@ -4,7 +4,7 @@ import { Footer as MaterializeFooter } from "react-materialize";
 export const Footer = () => {
   return (
     <MaterializeFooter
-      style={{}}
+      style={{ backgroundColor: "hsl(10, 56%, 51%)" }}
       copyrights="CoderHouse 2020"
       moreLinks={
         <a

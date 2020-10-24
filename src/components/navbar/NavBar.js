@@ -23,11 +23,17 @@ export const NavBar = () => {
       });
   }, []);
 
+  const style = { backgroundColor: "hsl(10, 56%, 51%)" };
+
   return (
     <Navbar
+      style={style}
       alignLinks="right"
       brand={
-        <NavLink to={`/`} style={{ display: "flex", alignItems: "center" }}>
+        <NavLink
+          to={`/`}
+          style={{ display: "flex", alignItems: "center", fontSize: "2rem" }}
+        >
           <img
             style={{ marginLeft: "0.5rem" }}
             src="https://img.icons8.com/color/48/000000/xiaomi.png"
@@ -68,7 +74,7 @@ export const NavBar = () => {
           outDuration: 250,
         }}
         trigger={
-          <a href="#!">
+          <a href="#!" style={{ fontSize: "1.3rem" }}>
             Categorías <Icon right>arrow_drop_down</Icon>
           </a>
         }
@@ -76,15 +82,19 @@ export const NavBar = () => {
         {categories.map((category) => {
           return (
             <NavLink
+              className="option"
               key={`/categories/${category.key}`}
               to={`/categories/${category.id}`}
-              className="option"
-              children={category.name}
+              children={<span style={{ color: "black" }}>{category.name}</span>}
             />
           );
         })}
       </Dropdown>
-      <NavLink to={`/cart`} children={<CartIcon />} />
+      <NavLink
+        to={`/cart`}
+        children={<CartIcon />}
+        style={{ fontSize: "1.3rem" }}
+      />
     </Navbar>
   );
 };
