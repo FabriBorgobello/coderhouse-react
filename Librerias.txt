@@ -1,0 +1,7 @@
+Librerías utilizadas:
+
+- Firebase: Backend as a service.
+- dotenv: Manejo de variables de Firebase.
+- materialize-css / react-materialize: Para diseño de UI.
+- react-hook-form: Para manejo de formulario de checkout.
+- react-router-dom: Manejo de rutas.
