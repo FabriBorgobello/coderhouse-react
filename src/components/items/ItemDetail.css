@@ -39,12 +39,12 @@
 }
 
 #ItemDetail #containerRight #bottom .bottomBtn {
-  margin: 0px;
+  margin: 10px;
   height: 50px;
   width: 250px;
   background-color: hsl(180, 22%, 45%);
+  top: 0;
 }
 #ItemDetail #containerRight #bottom .bottomBtn:hover {
   background-color: hsl(180, 22%, 50%);
 }
-

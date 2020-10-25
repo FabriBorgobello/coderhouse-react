@@ -84,7 +84,7 @@ export const NavBar = () => {
             <NavLink
               className="option"
               key={`/categories/${category.key}`}
-              to={`/categories/${category.id}`}
+              to={`/categories/${category.key}`}
               children={<span style={{ color: "black" }}>{category.name}</span>}
             />
           );

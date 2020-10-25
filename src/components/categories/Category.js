@@ -14,7 +14,7 @@ export const Category = () => {
     setLoad(true);
     const itemCollection = db
       .collection("items")
-      .where("categoryId", "==", parseInt(category));
+      .where("category.key", "==", category);
 
     itemCollection
       .get()
@@ -38,7 +38,14 @@ export const Category = () => {
 
   const renderCategory = () => {
     if (load) return <Loading />;
-    if (!items) return <div>No hay productos para mostrar</div>;
+    if (items.length === 0)
+      return (
+        <div
+          style={{ fontSize: "3rem", display: "flex", alignItems: "center" }}
+        >
+          No hay productos para mostrar
+        </div>
+      );
     return items.map((item) => (
       <NavLink
         to={`/items/${item.id}`}
@@ -55,11 +62,26 @@ export const Category = () => {
   };
 
   return (
-    <div
-      id="ItemList"
-      style={{ margin: "1rem 2rem 1rem 2rem", minHeight: "80vh" }}
-    >
-      {renderCategory()}
-    </div>
+    <>
+      {items.length > 0 && (
+        <p style={{ margin: "3rem 0", display: "block", textAlign: "center" }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "5rem",
+              textTransform: "capitalize",
+            }}
+          >
+            {category}
+          </span>
+        </p>
+      )}
+      <div
+        id="ItemList"
+        style={{ margin: "1rem 2rem 1rem 2rem", minHeight: "80vh" }}
+      >
+        {renderCategory()}
+      </div>
+    </>
   );
 };

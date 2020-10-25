@@ -14,8 +14,9 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoad(true);
-    const itemCollection = db.collection("items");
 
+    // Fetch products
+    const itemCollection = db.collection("items");
     itemCollection
       .doc(id)
       .get()
@@ -45,6 +46,7 @@ export const ItemDetailContainer = () => {
   if (load) {
     return <Loading style={style} />;
   }
+
   if (notFound) {
     return (
       <div style={style}>

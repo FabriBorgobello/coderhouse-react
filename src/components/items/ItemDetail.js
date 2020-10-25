@@ -5,6 +5,7 @@ import { Loading } from "../loading/Loading";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../cart/CartContext";
 import { Button, Icon } from "react-materialize";
+import M from "materialize-css";
 
 export const ItemDetail = (props) => {
   const [cart, setCart] = useContext(CartContext);
@@ -12,7 +13,9 @@ export const ItemDetail = (props) => {
 
   const addToCart = () => {
     const sameId = cart.some((element) => element.item.id === props.item.id);
+    M.toast({ html: "Producto añadido correctamente", displayLength: "2500" });
 
+    // Si el producto ya está agregado al carrito, aumenta la cantidad.
     if (sameId) {
       cart.forEach((element) => {
         if (element.item.id === props.item.id) {
@@ -27,6 +30,7 @@ export const ItemDetail = (props) => {
         }
       });
     } else {
+      // Si el producto no está agregado al carrito, lo añade.
       setCart([...cart, { item: props.item, quantity: parseInt(counter) }]);
     }
   };
@@ -63,12 +67,7 @@ export const ItemDetail = (props) => {
             item={props.item}
             handleCounter={handleCounter}
           />
-          <Button
-            className="bottomBtn"
-            node="button"
-            waves="light"
-            onClick={addToCart}
-          >
+          <Button className="bottomBtn" node="button" onClick={addToCart}>
             {`Añadir ${counter} al carrito`}
             <Icon left>add_shopping_cart</Icon>
           </Button>

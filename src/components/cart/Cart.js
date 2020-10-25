@@ -14,6 +14,7 @@ export const Cart = () => {
   const [orderId, setOrderId] = useState(null);
 
   useEffect(() => {
+    // Calculate total
     let myTotal = 0;
     cart.forEach((element) => {
       myTotal += element.quantity * element.item.price;
@@ -51,6 +52,7 @@ export const Cart = () => {
     setCart([]);
   };
 
+  // Fetch items on cart.
   const fetchCart = () =>
     cart.map((purchase) => {
       return (
@@ -70,8 +72,11 @@ export const Cart = () => {
 
   return (
     <div style={{ margin: "0 10%", minHeight: "80vh" }}>
+
       {/* Carro vacío */}
       {cart.length === 0 && <EmptyCart />}
+      
+      {/* Show items */}
       {cart.length !== 0 && (
         <div>
           <h3>Tu carrito:</h3>
@@ -84,6 +89,8 @@ export const Cart = () => {
           </div>
         </div>
       )}
+
+      {/* Redirect when order is ready */}
       {orderId && <Redirect to={`/order/${orderId}`} />}
     </div>
   );
