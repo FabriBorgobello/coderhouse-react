@@ -15,11 +15,18 @@ export const CartItem = (props) => {
           {props.stock && <p>Stock disponible: {props.stock}</p>}
         </div>
         <p id="price">$ {props.price * props.quantity}</p>
-        <button
-          style={{ background: "transparent", border: "none", fontSize: "0" }}
-          onClick={() => props.deleteItem(props.id)}
-          children={<Icon children="delete" />}
-        />
+        {props.deleteItem && (
+          <button
+            style={{
+              background: "transparent",
+              border: "none",
+              fontSize: "0",
+              cursor: "pointer",
+            }}
+            onClick={() => props.deleteItem(props.id)}
+            children={<Icon children="delete" />}
+          />
+        )}
       </div>
     </div>
   );
