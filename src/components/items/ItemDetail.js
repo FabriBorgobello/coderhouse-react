@@ -13,7 +13,7 @@ export const ItemDetail = (props) => {
 
   const addToCart = () => {
     const sameId = cart.some((element) => element.item.id === props.item.id);
-    M.toast({ html: "Producto añadido correctamente", displayLength: "2500" });
+    M.toast({ html: "Producto añadido correctamente", displayLength: "2000" });
 
     // Si el producto ya está agregado al carrito, aumenta la cantidad.
     if (sameId) {

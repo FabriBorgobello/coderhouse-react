@@ -6,6 +6,7 @@ import { CartContext } from "./CartContext";
 import { CartItem } from "./CartItem";
 import { EmptyCart } from "./EmptyCart";
 import { UserModal } from "./UserModal";
+import M from "materialize-css";
 
 export const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -21,6 +22,11 @@ export const Cart = () => {
     });
     setTotal(myTotal);
   }, [cart]);
+
+  const deleteItem = (id) => {
+    M.toast({ html: "Producto eliminado", displayLength: "2000" });
+    setCart(cart.filter((purchase) => purchase.item.id !== id));
+  };
 
   const handlePurchase = (data) => {
     //Create order.
@@ -64,6 +70,7 @@ export const Cart = () => {
           stock={purchase.item.stock}
           image={purchase.item.image}
           quantity={purchase.quantity}
+          deleteItem={deleteItem}
         />
       );
     });
@@ -72,10 +79,9 @@ export const Cart = () => {
 
   return (
     <div style={{ margin: "0 10%", minHeight: "80vh" }}>
-
       {/* Carro vacío */}
       {cart.length === 0 && <EmptyCart />}
-      
+
       {/* Show items */}
       {cart.length !== 0 && (
         <div>
