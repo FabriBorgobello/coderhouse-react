@@ -34,7 +34,7 @@ export const UserModal = ({ handlePurchase }) => {
         onOpenStart: null,
         opacity: 0.5,
         outDuration: 250,
-        preventScrolling: true,
+        preventScrolling: false,
         startingTop: "4%",
       }}
       trigger={
@@ -43,17 +43,13 @@ export const UserModal = ({ handlePurchase }) => {
         </Button>
       }
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} style={{ marginTop: "1rem" }}>
         <div>
           <label htmlFor="name">Nombre y apellido</label>
-          <input
-            name="name"
-            ref={register({
-              required: true,
-              validate: (value) => value !== "admin" || "Nice try!",
-            })}
-          />
-          {errors.name && <div>Este campo es obligatorio.</div>}
+          <input name="name" ref={register({ required: true })} />
+          {errors.name && (
+            <div className="error">Este campo es obligatorio.</div>
+          )}
         </div>
         <div>
           <label htmlFor="phone">Teléfono</label>
@@ -62,7 +58,9 @@ export const UserModal = ({ handlePurchase }) => {
             name="phone"
             ref={register({ required: true })}
           />
-          {errors.phone && <div>Este campo es obligatorio.</div>}
+          {errors.phone && (
+            <div className="error">Este campo es obligatorio.</div>
+          )}
         </div>
         <div>
           <label htmlFor="email">Email</label>
@@ -71,15 +69,15 @@ export const UserModal = ({ handlePurchase }) => {
             type="email"
             ref={register({
               required: true,
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              },
+              pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i },
             })}
           />
           {errors.email?.type === "required" && (
-            <div>Este campo es obligatorio.</div>
+            <div className="error">Este campo es obligatorio.</div>
           )}
-          {errors.email?.type === "pattern" && <div>Formato inválido</div>}
+          {errors.email?.type === "pattern" && (
+            <div className="error">Formato inválido</div>
+          )}
         </div>
         <div>
           <label htmlFor="confirmEmail">Confirmar Email</label>
@@ -92,14 +90,16 @@ export const UserModal = ({ handlePurchase }) => {
             })}
           />
           {errors.confirmEmail?.type === "required" && (
-            <div>Este campo es obligatorio.</div>
+            <div className="error">Este campo es obligatorio.</div>
           )}
           {errors.confirmEmail?.type === "pattern" && (
-            <div>Formato inválido</div>
+            <div className="error">Formato inválido</div>
           )}
-          {differentEmail && <div>Los emails no coinciden</div>}
+          {differentEmail && (
+            <div className="error">Los emails no coinciden</div>
+          )}
         </div>
-        <button type="input" className="right btn" children="Comprar" />
+        <Button type="input" className="right btn" children="Comprar" />
       </form>
     </Modal>
   );

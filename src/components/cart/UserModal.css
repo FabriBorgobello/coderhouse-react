@@ -10,3 +10,6 @@
 .btn:hover {
   background-color: hsl(180, 22%, 50%);
 }
+.error {
+  color: red;
+}

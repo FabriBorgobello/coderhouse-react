@@ -84,17 +84,3 @@ export const ItemDetail = (props) => {
     </div>
   );
 };
-
-// const addToCart = () => {
-//   const sameId = (value) => value === props.item.id;
-
-//   cart.forEach((element) => {
-//     if (sameId(element.id)) {
-//       element.quantity = parseFloat(element.quantity) + parseFloat(counter);
-//     }
-//   });
-//   if (!cart.some((element) => sameId(element.id))) {
-//     const newItem = { ...props.item, quantity: counter };
-//     setCart([...cart, newItem]);
-//   }
-// };

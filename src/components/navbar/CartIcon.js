@@ -15,7 +15,7 @@ const CartIcon = () => {
   }, [cart]);
 
   return (
-    <div>
+    <div style={{ display: "flex", alignItems: "center" }}>
       <Icon left>shopping_cart</Icon>
       Mi carrito
       {cart.length !== 0 && ` (${quantity})`}

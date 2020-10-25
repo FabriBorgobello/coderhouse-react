@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import "./ItemDetailContainer.css";
 import { Loading } from "../loading/Loading";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import db from "../../firebase";
 
 export const ItemDetailContainer = () => {
@@ -36,6 +36,7 @@ export const ItemDetailContainer = () => {
 
   const style = {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "80vh",
@@ -46,7 +47,12 @@ export const ItemDetailContainer = () => {
   }
   if (notFound) {
     return (
-      <h3 style={style}>No se ha encontrado el producto seleccionado.</h3>
+      <div style={style}>
+        <h3>No se ha encontrado el producto seleccionado.</h3>
+        <NavLink to="/">
+          <button className="btn">Ir al inicio</button>
+        </NavLink>
+      </div>
     );
   }
   return (

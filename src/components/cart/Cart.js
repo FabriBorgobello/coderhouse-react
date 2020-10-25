@@ -69,7 +69,7 @@ export const Cart = () => {
   if (load) return <Loading />;
 
   return (
-    <div style={{ margin: "0 10%", height: "80vh" }}>
+    <div style={{ margin: "0 10%", minHeight: "80vh" }}>
       {/* Carro vacío */}
       {cart.length === 0 && <EmptyCart />}
       {cart.length !== 0 && (
