@@ -2,16 +2,16 @@ import React from "react";
 import { Divider } from "react-materialize";
 import "./Item.css";
 
-export const Item = (props) => {
+export const Item = ({ item }) => {
   return (
     <div className="itemCard">
       <div id="imageContainer">
-        <img src={props.item.image} alt={props.item.title} />
+        <img src={item.image} alt={item.title} />
       </div>
       <div id="bottom">
-        <p id="title">{props.item.title}</p>
-        <Divider/>
-        <p id="price">$ {props.item.price}</p>
+        <p id="title">{item.title}</p>
+        <Divider />
+        <p id="price">$ {item.price}</p>
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./ItemCount.css";
 
-export const ItemCount = (props) => {
-  const [quantity, setQuantity] = useState(props.min);
+export const ItemCount = ({ min, max, item, handleCounter }) => {
+  const [quantity, setQuantity] = useState(min);
 
   useEffect(() => {
-    props.handleCounter(quantity);
-  }, [props, quantity]);
+    handleCounter(quantity);
+  }, [quantity, handleCounter]);
 
   return (
     <div id="ItemCount">
-      <label>Cantidad: (Stock: {props.item.stock})</label>
+      <label>Cantidad: (Stock: {item.stock})</label>
       <input
         style={{
           backgroundColor: "#fff",
@@ -18,8 +18,8 @@ export const ItemCount = (props) => {
           opacity: "0.8",
         }}
         type="number"
-        min={props.min}
-        max={props.max}
+        min={min}
+        max={max}
         value={quantity}
         onChange={(e) => {
           setQuantity(e.target.value);

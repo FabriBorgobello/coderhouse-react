@@ -7,7 +7,7 @@ import { getFirestore } from "../../firebase";
 
 export const ItemList = () => {
   const [items, setItems] = useState([]);
-  const [load, setLoad] = useState("true");
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     setLoad(true);
@@ -37,7 +37,7 @@ export const ItemList = () => {
     return <Loading />;
   }
 
-  const style = {
+  const linkStyle = {
     color: "inherit",
     textDecoration: "none",
   };
@@ -45,15 +45,16 @@ export const ItemList = () => {
   return (
     <div id="ItemList">
       {!items && <div>No hay productos para mostrar</div>}
-
-      {items.map((item) => (
-        <NavLink
-          to={`/items/${item.id}`}
-          style={style}
-          key={item.id}
-          children={<Item item={item} />}
-        />
-      ))}
+      {items.map((item) => {
+        return (
+          <NavLink
+            to={`/items/${item.id}`}
+            style={linkStyle}
+            key={item.id}
+            children={<Item item={item} />}
+          />
+        );
+      })}
     </div>
   );
 };

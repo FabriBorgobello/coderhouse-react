@@ -35,21 +35,13 @@ export const ItemDetailContainer = () => {
       });
   }, [id]);
 
-  const style = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "80vh",
-  };
-
   if (load) {
-    return <Loading style={style} />;
+    return <Loading className="detail-center" />;
   }
 
   if (notFound) {
     return (
-      <div style={style}>
+      <div className="detail-center">
         <h3>No se ha encontrado el producto seleccionado.</h3>
         <NavLink to="/">
           <button className="btn">Ir al inicio</button>

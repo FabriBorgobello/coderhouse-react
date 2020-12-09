@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import db from "../../firebase";
 import { Loading } from "../loading/Loading";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../context/CartContext";
 import { CartItem } from "./CartItem";
 import { EmptyCart } from "./EmptyCart";
 import { UserModal } from "./UserModal";

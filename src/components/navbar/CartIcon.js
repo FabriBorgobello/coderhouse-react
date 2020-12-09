@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Icon } from "react-materialize";
-import { CartContext } from "../cart/CartContext";
+import { CartContext } from "../context/CartContext";
 
 const CartIcon = () => {
   const [cart] = useContext(CartContext);

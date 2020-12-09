@@ -4,7 +4,7 @@ import { NavBar } from "./components/navbar/NavBar";
 import { Home } from "./components/Home";
 import { Cart } from "./components/cart/Cart";
 import { ItemDetailContainer } from "./components/items/ItemDetailContainer";
-import { CartProvider } from "./components/cart/CartContext";
+import { CartProvider } from "./components/context/CartContext";
 import { Category } from "./components/categories/Category";
 import { Order } from "./components/orders/Order";
 import { Footer } from "./components/Footer";
