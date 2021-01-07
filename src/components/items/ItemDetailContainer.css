@@ -1,17 +1,17 @@
 #ItemDetailContainer {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: hsl(34, 100%, 100%);
-  margin: 1rem;
-  padding: 2rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.15);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: hsl(34, 100%, 100%);
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.15);
 }
 .detail-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
